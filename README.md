@@ -27,7 +27,7 @@ https://miniproject02git-u7cjmwvvr2xj2j7qhoru8g.streamlit.app/
 
 ## 개요
 키워드를 입력하면 최신 뉴스를 수집하고, 텍스트 정규화 → 요약 → 감정분석을 거쳐 고정 JSON 스키마로 반환합니다.  
-웹 UI에서 기사 목록과 상세 내용을 확인하고 JSON 저장/불러오기를 지원합니다.
+Streamlit 웹 UI의 API 설정 다이얼로그에서 NewsAPI/OpenAI 키, 모델, Hugging Face 옵션을 바로 바꿔 결과를 비교하고, JSON 저장/불러오기도 지원합니다.
 
 ## 주요 기능
 - 뉴스 수집: NewsAPI 호출
@@ -116,13 +116,22 @@ cmd /c "npm run dev"
 
 ---
 
-## 환경 변수
-- `NEWS_API_KEY` (필수): NewsAPI 키
-- `OPENAI_API_KEY` (선택): OpenAI 요약/감정 분석 사용 시
-- `OPENAI_MODEL` (선택): 기본값 `gpt-3.5-turbo`
-- `USE_VADER` (선택): `1`이면 VADER 감정 분석 사용
-- `USE_TRANSFORMERS_SUMMARY` (선택): `1`이면 transformers 요약 사용
-- `VITE_API_BASE` (선택): React 프론트에서 호출할 백엔드 URL (기본 `http://localhost:8000`)
+## 환경 변수 & API 설정
+- `.env`에 키/모델/옵션을 기록하면 Streamlit 앱의 **API 설정** 팝업에서 즉시 불러옵니다. 예:
+  ```
+  NEWS_API_KEY=your-newsapi
+  OPENAI_API_KEY=your-openai-key
+  OPENAI_MODEL=gpt-3.5-turbo
+  USE_OPENAI=1
+  USE_TRANSFORMERS_SUMMARY=1
+  USE_VADER=1
+  SUMMARY_ENGINE=auto
+  SUMMARY_HF_MODEL=ainize/kobart-news
+  SENTIMENT_ENGINE=auto
+  SENTIMENT_HF_MODEL=snunlp/KR-FinBert-SC
+  ```
+- `NEWS_API_KEY`는 필수이며, OpenAI 키가 없으면 Hugging Face → 스텁(또는 룰 기반) 순으로 폴백합니다.
+- `.env`는 `.gitignore`에 올라가 있으므로 API 키를 포함해 커밋하지 마세요. 필요하면 `.env.example`로 템플릿만 제공하면 됩니다.
 
 ## API 엔드포인트
 ### 헬스 체크
