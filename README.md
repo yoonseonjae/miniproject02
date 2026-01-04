@@ -3,6 +3,10 @@
 NewsAPI로 최신 기사를 수집하고, 요약/감정 분석 결과를 웹에서 확인하는 서비스입니다.  
 Streamlit 통합 실행을 기본으로 하며, 필요 시 React + FastAPI 분리 실행도 가능합니다.
 
+- 📌 발표자료(PPT): [다운로드](docs/presentation.pptx)
+<img src="docs/presentation.png" width="700" />
+
+
 # 데모 사이트 (리엑트/스트림잇 free trial ver.)
 https://miniproject02.vercel.app/
 
