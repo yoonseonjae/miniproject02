@@ -8,9 +8,10 @@ Streamlit 통합 실행을 기본으로 하며, 필요 시 React + FastAPI 분�
 
 
 # 데모 사이트 (리엑트/스트림잇 free trial ver.)
-https://miniproject02.vercel.app/
 
 https://miniproject02git-u7cjmwvvr2xj2j7qhoru8g.streamlit.app/
+----
+https://miniproject02.vercel.app/
 
 ---
 
